@@ -5,7 +5,7 @@ import ModuleMyPosts from './Post.module.css'
 
 type PostProps = {
     message: string,
-    like:string
+    likesCount:string
 }
 
 const Post = (props:PostProps) => {
@@ -17,7 +17,7 @@ const Post = (props:PostProps) => {
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQihpPg13UyFBVFKfGbZZRuvrtGtiuCPKS9Gh84AxMmmsItool2&usqp=CAU"
                 alt=""/>
             {props.message}
-            <div><span>{props.like}</span></div>
+            <div><span>{props.likesCount}</span></div>
 
         </div>
 

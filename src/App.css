@@ -8,6 +8,10 @@
 
 }
 
+.app-wrapper-content {
+    background-color: aqua;
+    grid-area: content;
+}
 
 
 

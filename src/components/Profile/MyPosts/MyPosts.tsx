@@ -12,8 +12,8 @@ const MyPosts = () => {
                 <button>Add post</button>
             </div>
             <div className={ModuleMyPosts.posts}>
-                <Post message='Hi, how are you?' like='20'/>
-                <Post message='Its my first post' like='15'/>
+                <Post message='Hi, how are you?' likesCount='20'/>
+                <Post message='Its my first post' likesCount='15'/>
             </div>
         </div>
     )
