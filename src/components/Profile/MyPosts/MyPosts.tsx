@@ -1,19 +1,31 @@
 import React from 'react'
 import ModuleMyPosts from './MyPosts.module.css'
 import Post from "./Post/Post";
+import {ProfilePageType} from "../../../redux/state";
 
 
-const MyPosts = () => {
+
+
+
+const MyPosts = (props:ProfilePageType) => {
+
+
+    let postsElements = props.postsData.map(el => <Post message={el.message} likesCount={el.likesCount}/>)
     return (
-        <div>
-            My post
+        <div className={ModuleMyPosts.postsBlock}>
+            <h3>My post</h3>
             <div>
-                <textarea></textarea>
-                <button>Add post</button>
+                <div>
+                    <textarea></textarea>
+
+                </div>
+                <div>
+                    <button>Add post</button>
+                </div>
+
             </div>
             <div className={ModuleMyPosts.posts}>
-                <Post message='Hi, how are you?' likesCount='20'/>
-                <Post message='Its my first post' likesCount='15'/>
+                {postsElements}
             </div>
         </div>
     )

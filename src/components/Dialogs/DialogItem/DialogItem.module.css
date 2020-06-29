@@ -4,13 +4,16 @@
 }
 
 
-.messages{
-    padding: 10px;
-}
-
 
 .dialogsItems{
     padding: 10px;
     color: black;
 }
 
+.messages{
+    padding: 10px;
+}
+
+.messages .message{
+    color:black
+}

@@ -5,7 +5,7 @@ import ModuleMyPosts from './Post.module.css'
 
 type PostProps = {
     message: string,
-    likesCount:string
+    likesCount:number | string
 }
 
 const Post = (props:PostProps) => {
