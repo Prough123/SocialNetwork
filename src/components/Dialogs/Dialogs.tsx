@@ -13,6 +13,12 @@ const Dialogs = (props: DialogpageType) => {
     let dialogsElements = props.dialogsData.map(el => <DialogItem id={el.id} name={el.name}/> )
     let messageElements = props.messagesData.map(el =>  <Message message={el.message}/>)
 
+
+    let addMessageinDialogs = React.createRef<HTMLTextAreaElement>();
+
+    const addMessage = () => {
+        alert(addMessageinDialogs.current?.value) }
+
     return (
         <div className={ModuleDialogs.dialogs}>
             <div className={ModuleDialogs.dialogsItems}>
@@ -20,6 +26,10 @@ const Dialogs = (props: DialogpageType) => {
             </div>
             <div className={ModuleDialogs.messages}>
                 {messageElements}
+            </div>
+            <div>
+                <textarea ref={addMessageinDialogs}></textarea>
+                <button onClick={addMessage}>x</button>
             </div>
         </div>
     )

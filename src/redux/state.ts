@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from "../render";
 
 type DialogsDataProps = {
     id: number,
@@ -9,14 +10,14 @@ type MessageDataProps = {
     message: string,
 }
 
-type PostsDataProps = {
+export type PostsDataProps = {
     id: number,
     message: string,
     likesCount: number,
 }
 
 export type ProfilePageType = {
-    postsData: Array<PostsDataProps>
+    postsData: Array<PostsDataProps>,
 }
 
 export type DialogpageType = {
@@ -26,7 +27,7 @@ export type DialogpageType = {
 
 type SidebarType = {}
 
-type RootStateType = {
+export type RootStateType = {
     profilePage:ProfilePageType
     messagesPage:DialogpageType
     sidebar:SidebarType
@@ -34,7 +35,7 @@ type RootStateType = {
 
 
 
-export let state: RootStateType = {
+let state: RootStateType = {
 
     profilePage: {
         postsData: [
@@ -70,3 +71,13 @@ export let state: RootStateType = {
     sidebar:{}
 
 }
+
+export let addPost = (postMessage: string) => {
+    let newPost:PostsDataProps = {id:5,
+    message: postMessage,
+    likesCount: 0};
+    state.profilePage.postsData.push(newPost)
+    rerenderEntireTree(state)
+}
+
+export default state;
