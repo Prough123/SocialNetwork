@@ -1,5 +1,6 @@
-import {rerenderEntireTree} from "../render";
-
+let rerenderEntireTree = () => {
+    console.log('State is changed')
+}
 type DialogsDataProps = {
     id: number,
     name: string,
@@ -17,7 +18,9 @@ export type PostsDataProps = {
 }
 
 export type ProfilePageType = {
-    postsData: Array<PostsDataProps>,
+    postsData: Array<PostsDataProps>
+    newPostText: string
+
 }
 
 export type DialogpageType = {
@@ -28,15 +31,13 @@ export type DialogpageType = {
 type SidebarType = {}
 
 export type RootStateType = {
-    profilePage:ProfilePageType
-    messagesPage:DialogpageType
-    sidebar:SidebarType
+    profilePage: ProfilePageType
+    messagesPage: DialogpageType
+    sidebar: SidebarType
 }
 
 
-
 let state: RootStateType = {
-
     profilePage: {
         postsData: [
             {id: 1, message: 'Hi, how are you?', likesCount: 36},
@@ -46,7 +47,9 @@ let state: RootStateType = {
             {id: 5, message: 'Kekeke', likesCount: 16},
             {id: 6, message: 'Sdasdasdad', likesCount: 32},
             {id: 7, message: 'asdadSADasdas ssdsd', likesCount: 136},
-        ],},
+        ],
+        newPostText: 'it-kamasutra.com'
+    },
     messagesPage: {
         messagesData: [
             {id: 1, message: 'Hi'},
@@ -68,16 +71,29 @@ let state: RootStateType = {
             {id: 7, name: 'Ilya'},
         ]
     },
-    sidebar:{}
+    sidebar: {}
 
 }
 
-export let addPost = (postMessage: string) => {
-    let newPost:PostsDataProps = {id:5,
-    message: postMessage,
-    likesCount: 0};
+export const addPost = (postMessage: string) => {
+    let newPost: PostsDataProps = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0
+    };
+
     state.profilePage.postsData.push(newPost)
+    state.profilePage.newPostText = ''
     rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
+
+export const subscribe = (observer: object):any => {
+    rerenderEntireTree = observer
 }
 
 export default state;
