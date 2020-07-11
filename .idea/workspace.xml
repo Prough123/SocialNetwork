@@ -19,14 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91269bff-abd2-41e2-a859-3598110565f8" name="Default Changelist" comment="Adding state and refactoring code">
+    <list default="true" id="91269bff-abd2-41e2-a859-3598110565f8" name="Default Changelist" comment="using Flux architecture">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +95,14 @@
       <workItem from="1594049555167" duration="2599000" />
       <workItem from="1594310576336" duration="2633000" />
       <workItem from="1594337270111" duration="4424000" />
-      <workItem from="1594342921615" duration="937000" />
+      <workItem from="1594342921615" duration="1067000" />
+      <workItem from="1594344031243" duration="31000" />
+      <workItem from="1594467537561" duration="264000" />
+      <workItem from="1594467995058" duration="14000" />
+      <workItem from="1594470619445" duration="156000" />
+      <workItem from="1594482854171" duration="17000" />
+      <workItem from="1594482884138" duration="36000" />
+      <workItem from="1594483114207" duration="2930000" />
     </task>
     <task id="LOCAL-00001" summary="Adding state and refactoring code">
       <created>1593470275358</created>
@@ -109,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593470275358</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="using Flux architecture">
+      <created>1594343968407</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594343968407</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,47 +138,53 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding state and refactoring code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding state and refactoring code" />
+    <MESSAGE value="using Flux architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="using Flux architecture" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="302" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594339935544">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="693" y="302" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594339935544" />
-    <state x="743" y="311" width="424" height="483" key="FileChooserDialogImpl" timestamp="1594342275670">
+    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl" timestamp="1594482916049">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="743" y="311" width="424" height="483" key="FileChooserDialogImpl/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593513806637" />
-    <state x="743" y="311" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594342275670" />
-    <state x="2663" y="291" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069374411" />
-    <state width="1870" height="277" key="GridCell.Tab.0.bottom" timestamp="1594342278007">
+    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594482916049" />
+    <state x="2663" y="291" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594470774122" />
+    <state width="1870" height="277" key="GridCell.Tab.0.bottom" timestamp="1594467800818">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="277" key="GridCell.Tab.0.bottom/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594342278007" />
+    <state width="1870" height="277" key="GridCell.Tab.0.bottom/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594467800818" />
     <state width="1667" height="241" key="GridCell.Tab.0.bottom/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
-    <state width="1870" height="277" key="GridCell.Tab.0.center" timestamp="1594342278007">
+    <state width="1870" height="277" key="GridCell.Tab.0.center" timestamp="1594467800818">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.center/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="277" key="GridCell.Tab.0.center/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594342278007" />
+    <state width="1870" height="277" key="GridCell.Tab.0.center/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594467800818" />
     <state width="1667" height="241" key="GridCell.Tab.0.center/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
-    <state width="1870" height="277" key="GridCell.Tab.0.left" timestamp="1594342278007">
+    <state width="1870" height="277" key="GridCell.Tab.0.left" timestamp="1594467800818">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.left/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="277" key="GridCell.Tab.0.left/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594342278007" />
+    <state width="1870" height="277" key="GridCell.Tab.0.left/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594467800818" />
     <state width="1667" height="241" key="GridCell.Tab.0.left/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
-    <state width="1870" height="277" key="GridCell.Tab.0.right" timestamp="1594342278007">
+    <state width="1870" height="277" key="GridCell.Tab.0.right" timestamp="1594467800818">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.right/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="277" key="GridCell.Tab.0.right/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594342278007" />
+    <state width="1870" height="277" key="GridCell.Tab.0.right/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594467800818" />
     <state width="1667" height="241" key="GridCell.Tab.0.right/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
-    <state x="555" y="289" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1593470280941">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="449" y="189" key="SettingsEditor" timestamp="1594343858308">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="449" y="189" key="SettingsEditor/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594343858308" />
+    <state x="555" y="290" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1594343974709">
+      <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="555" y="289" width="800" height="527" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593470280941" />
+    <state x="555" y="290" key="Vcs.Push.Dialog.v2/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594343974709" />
     <state x="624" y="254" key="run.anything.popup" timestamp="1593450831670">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

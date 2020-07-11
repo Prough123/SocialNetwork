@@ -1,4 +1,4 @@
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state:RootStateType) => {
     console.log('State is changed')
 }
 type DialogsDataProps = {
@@ -92,7 +92,7 @@ export const updateNewPostText = (newText: string) => {
     rerenderEntireTree(state)
 }
 
-export const subscribe = (observer: object):any => {
+export const subscribe = (observer:(state:RootStateType) => void) => {
     rerenderEntireTree = observer
 }
 
