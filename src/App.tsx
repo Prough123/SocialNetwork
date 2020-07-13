@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from './components/Dialogs/Dialogs';
 import {Route, BrowserRouter} from 'react-router-dom';
-import state, {RootStateType, updateNewPostText} from './redux/state';
+import store, {RootStateType} from './redux/state';
 
 
 type Apptype = {
@@ -17,10 +17,10 @@ type Apptype = {
 
 const App = (props: Apptype) => {
 
-    let messageData = state.messagesPage.messagesData;
-    let dialogsData = state.messagesPage.dialogsData;
-    let postsData = state.profilePage.postsData;
-    let newPostText = state.profilePage.newPostText
+    let messageData = store._state.messagesPage.messagesData;
+    let dialogsData = store._state.messagesPage.dialogsData;
+    let postsData = store._state.profilePage.postsData;
+    let newPostText = store._state.profilePage.newPostText
 
 
     return (
@@ -31,7 +31,7 @@ const App = (props: Apptype) => {
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
                            render={() => <Dialogs messagesData={messageData} dialogsData={dialogsData}/>}/>
-                    <Route path="/profile" render={() => <Profile newPostText={newPostText}  updateNewPostText={updateNewPostText} addPost={props.addPost} postsData={postsData}/>}/>
+                    <Route path="/profile" render={() => <Profile newPostText={newPostText}  updateNewPostText={store.updateNewPostText} addPost={props.addPost} postsData={postsData}/>}/>
                 </div>
             </div>
         </BrowserRouter>

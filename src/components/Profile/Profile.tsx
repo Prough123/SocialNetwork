@@ -1,7 +1,7 @@
 import React from 'react';
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import {PostsDataProps, updateNewPostText} from "../../redux/state";
+import store, {PostsDataProps} from "../../redux/state";
 
 
 export type ProfileType = {
@@ -16,7 +16,7 @@ const Profile = (props: ProfileType) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts newPostText={props.newPostText} updateNewPostText={updateNewPostText} postsData={props.postsData} addPost={props.addPost}/>
+            <MyPosts newPostText={store.getState().profilePage.newPostText} updateNewPostText={store.updateNewPostText} postsData={store._state.profilePage.postsData} addPost={store.addPost}/>
         </div>
     )
 }
