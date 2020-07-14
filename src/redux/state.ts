@@ -1,4 +1,3 @@
-
 type DialogsDataProps = {
     id: number,
     name: string,
@@ -18,13 +17,13 @@ export type PostsDataProps = {
 export type ProfilePageType = {
     postsData: Array<PostsDataProps>
     newPostText: string
-
 }
 
 export type DialogpageType = {
     messagesData: Array<MessageDataProps>
     dialogsData: Array<DialogsDataProps>
 }
+
 
 type SidebarType = {}
 
@@ -34,17 +33,25 @@ export type RootStateType = {
     sidebar: SidebarType
 }
 
-export type StoreType = {
-    _state: RootStateType
-    getState: () => RootStateType
-    _callSubscriber:(state:RootStateType)=> void
-    addPost:()=> void
-    updateNewPostText:(newText:string)=> void
-    subscribe:(observer:(state:RootStateType) => void) => void
+export  type DispatchActionType = {
+    type: string
+    newText?: string
 }
 
 
-let store:StoreType = {
+
+export type StoreType = {
+    _state: RootStateType
+    getState: () => RootStateType
+    _callSubscriber: (state: RootStateType) => void
+    _addPost: () => void
+    _updateNewPostText: (newText: string) => void
+    subscribe: (observer: (state: RootStateType) => void) => void
+    dispatch: (action: DispatchActionType) => void
+}
+
+
+let store: StoreType = {
     _state: {
         profilePage: {
             postsData: [
@@ -82,37 +89,43 @@ let store:StoreType = {
         sidebar: {}
 
     },
-    getState(){
-        return this._state
-    },
     _callSubscriber(state: RootStateType) {
         console.log('State is changed')
     },
 
-    addPost() {
+
+    getState() {
+        return this._state
+    },
+    subscribe(observer: (state: RootStateType) => void) {
+        this._callSubscriber = observer
+    },
+
+
+    _addPost() {
         let newPost: PostsDataProps = {
             id: 5,
             message: this._state.profilePage.newPostText,
             likesCount: 0
         };
-
         this._state.profilePage.postsData.push(newPost)
         this._state.profilePage.newPostText = ''
         this._callSubscriber(this._state)
     },
-    updateNewPostText(newText: string) {
+    _updateNewPostText(newText: string) {
         this._state.profilePage.newPostText = newText
         this._callSubscriber(this._state)
     },
-    subscribe(observer: (state: RootStateType) => void){
-        this._callSubscriber = observer
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+           this._addPost();
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            if(action.newText) {
+                this._updateNewPostText(action.newText);
+            }
+        }
     }
 }
-
-
-
-
-
 
 
 export default store;
