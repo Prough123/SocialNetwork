@@ -2,12 +2,18 @@ import React from 'react'
 import ModuleMyPosts from './MyPosts.module.css'
 import Post from "./Post/Post";
 import {ProfileType} from "../Profile";
-import {DispatchActionType, PostsDataProps, ProfilePageType} from "../../../redux/state";
+import {
+    addPostActionCreator,
+    DispatchActionType,
+    PostsDataProps,
+    ProfilePageType,
+    updateNewPostTextActionCreator
+} from "../../../redux/state";
 
 
 type MyPostsTypeProps = {
-    profilePage:ProfilePageType
-    dispatch: (action: DispatchActionType) =>void
+    profilePage: ProfilePageType
+    dispatch: (action: DispatchActionType) => void
 }
 
 const MyPosts = (props: MyPostsTypeProps) => {
@@ -20,16 +26,14 @@ const MyPosts = (props: MyPostsTypeProps) => {
 
     let addPost = () => {
         if (newPostElement.current) {
-
-            props.dispatch({type: 'ADD-POST', })
+            props.dispatch(addPostActionCreator())
         }
     }
 
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-            let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
-            props.dispatch(action)
+            props.dispatch(updateNewPostTextActionCreator(text))
         }
     }
 

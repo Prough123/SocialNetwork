@@ -24,8 +24,6 @@
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JavaScript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -112,6 +110,8 @@
       <workItem from="1594607760446" duration="224000" />
       <workItem from="1594633479677" duration="3147000" />
       <workItem from="1594717677568" duration="7524000" />
+      <workItem from="1594802374851" duration="12000" />
+      <workItem from="1594989516122" duration="8840000" />
     </task>
     <task id="LOCAL-00001" summary="Adding state and refactoring code">
       <created>1593470275358</created>
@@ -163,11 +163,11 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="693" y="302" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594339935544" />
-    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl" timestamp="1594603066690">
+    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl" timestamp="1594802385602">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="743" y="311" width="424" height="483" key="FileChooserDialogImpl/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593513806637" />
-    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594603066690" />
+    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594802385602" />
     <state x="2663" y="291" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594470774122" />
     <state width="1870" height="209" key="GridCell.Tab.0.bottom" timestamp="1594635458859">
       <screen x="0" y="28" width="1920" height="1052" />
@@ -207,10 +207,10 @@
     </state>
     <state x="624" y="254" key="run.anything.popup/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593450831670" />
     <state x="624" y="255" key="run.anything.popup/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594721434678" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1594721542164">
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1595005751447">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593450684612" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594721542164" />
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595005751447" />
   </component>
 </project>
