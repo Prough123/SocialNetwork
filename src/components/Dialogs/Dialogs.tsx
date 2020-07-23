@@ -20,22 +20,16 @@ const Dialogs = (props: ActionTypeProps) => {
 
     let dialogsElements = props.state.dialogsData.map(el => <DialogItem id={el.id} name={el.name}/>)
     let messageElements = props.state.messagesData.map(el => <Message message={el.message}/>)
-
-
-    let createRefForMessage = React.createRef<HTMLTextAreaElement>();
-
+    let newMessageBody = props.state.newMessageText
 
     const addMessage = () => {
-        if (createRefForMessage.current) {
             props.dispatch(addMessageInDialogsActionCreator())
-        }
     }
 
-    const onChangeMessage = () => {
-        if (createRefForMessage.current) {
-            let text = createRefForMessage.current.value
-            props.dispatch(updateNewMessageInDialogsActionCreator(text))
-        }
+
+    const onChangeMessage = (e: React.FormEvent<HTMLTextAreaElement>) => {
+        let body = e.currentTarget.value
+        props.dispatch(updateNewMessageInDialogsActionCreator(body))
     }
 
 
@@ -48,9 +42,14 @@ const Dialogs = (props: ActionTypeProps) => {
                 {messageElements}
             </div>
             <div>
-                <textarea onChange={onChangeMessage} value={props.state.newMessageText}
-                          ref={createRefForMessage}/>
-                <button onClick={addMessage}>x</button>
+                <div>
+                       <textarea onChange={onChangeMessage} value={newMessageBody}
+                                />
+                </div>
+                <div>
+                    <button onClick={addMessage}>x</button>
+                </div>
+
             </div>
         </div>
     )

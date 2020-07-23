@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91269bff-abd2-41e2-a859-3598110565f8" name="Default Changelist" comment="Added oop store">
+      <change afterPath="$PROJECT_DIR$/src/redux/dialogs-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/profile-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/sidebar-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,6 +57,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/redux" />
       <recent name="$PROJECT_DIR$/src/components/Dialogs/DialogItem" />
       <recent name="$PROJECT_DIR$/src/components/Dialogs/Message" />
       <recent name="$PROJECT_DIR$/src/components/Profile/ProfileInfo" />
@@ -112,6 +114,11 @@
       <workItem from="1594717677568" duration="7524000" />
       <workItem from="1594802374851" duration="12000" />
       <workItem from="1594989516122" duration="8840000" />
+      <workItem from="1595159891327" duration="16000" />
+      <workItem from="1595263031659" duration="622000" />
+      <workItem from="1595413602471" duration="2933000" />
+      <workItem from="1595429991205" duration="9000" />
+      <workItem from="1595506788678" duration="9860000" />
     </task>
     <task id="LOCAL-00001" summary="Adding state and refactoring code">
       <created>1593470275358</created>
@@ -159,39 +166,43 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added oop store" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="555" y="215" width="800" height="731" key="#Intentions" timestamp="1595526979323">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="555" y="215" width="800" height="731" key="#Intentions/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595526979323" />
     <state x="693" y="302" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594339935544">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="693" y="302" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594339935544" />
-    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl" timestamp="1594802385602">
+    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl" timestamp="1595429998964">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="743" y="311" width="424" height="483" key="FileChooserDialogImpl/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593513806637" />
-    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594802385602" />
+    <state x="743" y="311" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595429998964" />
     <state x="2663" y="291" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594470774122" />
-    <state width="1870" height="209" key="GridCell.Tab.0.bottom" timestamp="1594635458859">
+    <state width="1870" height="376" key="GridCell.Tab.0.bottom" timestamp="1595529495890">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="209" key="GridCell.Tab.0.bottom/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594635458859" />
+    <state width="1870" height="376" key="GridCell.Tab.0.bottom/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595529495890" />
     <state width="1667" height="241" key="GridCell.Tab.0.bottom/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
-    <state width="1870" height="209" key="GridCell.Tab.0.center" timestamp="1594635458859">
+    <state width="1870" height="376" key="GridCell.Tab.0.center" timestamp="1595529495890">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.center/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="209" key="GridCell.Tab.0.center/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594635458859" />
+    <state width="1870" height="376" key="GridCell.Tab.0.center/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595529495890" />
     <state width="1667" height="241" key="GridCell.Tab.0.center/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
-    <state width="1870" height="209" key="GridCell.Tab.0.left" timestamp="1594635458859">
+    <state width="1870" height="376" key="GridCell.Tab.0.left" timestamp="1595529495889">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.left/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="209" key="GridCell.Tab.0.left/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594635458859" />
+    <state width="1870" height="376" key="GridCell.Tab.0.left/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595529495889" />
     <state width="1667" height="241" key="GridCell.Tab.0.left/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
-    <state width="1870" height="209" key="GridCell.Tab.0.right" timestamp="1594635458859">
+    <state width="1870" height="376" key="GridCell.Tab.0.right" timestamp="1595529495890">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state width="1870" height="277" key="GridCell.Tab.0.right/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593471108251" />
-    <state width="1870" height="209" key="GridCell.Tab.0.right/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594635458859" />
+    <state width="1870" height="376" key="GridCell.Tab.0.right/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595529495890" />
     <state width="1667" height="241" key="GridCell.Tab.0.right/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594069377089" />
     <state x="449" y="189" key="SettingsEditor" timestamp="1594343858308">
       <screen x="0" y="28" width="1920" height="1052" />
@@ -202,11 +213,11 @@
     </state>
     <state x="555" y="289" width="800" height="527" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593470280941" />
     <state x="555" y="290" width="800" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594607178804" />
-    <state x="624" y="255" key="run.anything.popup" timestamp="1594721434678">
+    <state x="624" y="255" key="run.anything.popup" timestamp="1595529199296">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="624" y="254" key="run.anything.popup/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1593450831670" />
-    <state x="624" y="255" key="run.anything.popup/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594721434678" />
+    <state x="624" y="255" key="run.anything.popup/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595529199296" />
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1595005751447">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
