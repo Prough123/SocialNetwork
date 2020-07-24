@@ -3,11 +3,10 @@ import ModuleDialogs from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {
-    addMessageInDialogsActionCreator,
     DialogpageType,
     DispatchActionType,
-    updateNewMessageInDialogsActionCreator
-} from "../../redux/state";
+} from "../../redux/store";
+import {addMessageInDialogsActionCreator, updateNewMessageInDialogsActionCreator} from "../../redux/dialogs-reducer";
 
 
 type ActionTypeProps = {

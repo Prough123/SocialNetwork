@@ -55,11 +55,6 @@ export type StoreType = {
 }
 
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_MESSAGE_IN_DIALOGS = 'ADD_MESSAGE_IN_DIALOGS'
-const UPDATE_NEW_MESSAGE_IN_DIALOGS = 'UPDATE_NEW_MESSAGE_IN_DIALOGS'
-
 let store: StoreType = {
     _state: {
         profilePage: {
@@ -102,8 +97,6 @@ let store: StoreType = {
     _callSubscriber(state: RootStateType) {
         console.log('State is changed')
     },
-
-
     getState() {
         return this._state
     },
@@ -123,16 +116,6 @@ let store: StoreType = {
     }
 }
 
-
-
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text: string) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const updateNewMessageInDialogsActionCreator = (text: string) => ({
-    type: UPDATE_NEW_MESSAGE_IN_DIALOGS,
-    newTextDialogs: text
-})
-
-export const addMessageInDialogsActionCreator = () => ({type: ADD_MESSAGE_IN_DIALOGS})
 
 
 export default store;

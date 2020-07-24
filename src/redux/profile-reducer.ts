@@ -1,10 +1,23 @@
-import {DispatchActionType, PostsDataProps, ProfilePageType} from "./state";
+import {DispatchActionType, PostsDataProps, ProfilePageType} from "./store";
 
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
-const profileReducer = (state: ProfilePageType, action: DispatchActionType) => {
+let initialState = {
+        postsData: [
+            {id: 1, message: 'Hi, how are you?', likesCount: 36},
+            {id: 2, message: 'Its my first post', likesCount: 344},
+            {id: 3, message: 'How are you?', likesCount: 3},
+            {id: 4, message: 'Lol', likesCount: 6},
+            {id: 5, message: 'Kekeke', likesCount: 16},
+            {id: 6, message: 'Sdasdasdad', likesCount: 32},
+            {id: 7, message: 'asdadSADasdas ssdsd', likesCount: 136},
+        ],
+        newPostText: 'it-kamasutra.com'
+    }
+
+const profileReducer = (state: ProfilePageType = initialState, action: DispatchActionType) => {
 
     switch (action.type) {
         case ADD_POST:
@@ -28,6 +41,8 @@ const profileReducer = (state: ProfilePageType, action: DispatchActionType) => {
 
 }
 
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text: string) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 export default profileReducer;
 

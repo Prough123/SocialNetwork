@@ -1,6 +1,8 @@
-import {DispatchActionType, RootStateType, SidebarType} from "./state";
+import {DispatchActionType, SidebarType} from "./store";
 
- const sidebarReducer = (state: SidebarType, action: DispatchActionType)=> {
+
+let initialState = {}
+ const sidebarReducer = (state: SidebarType = initialState, action: DispatchActionType)=> {
 
     return state
 }
