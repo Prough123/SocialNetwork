@@ -4,7 +4,6 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {
     DialogpageType,
-    DialogsDataProps, MessageDataProps,
 } from "../../redux/store";
 
 
