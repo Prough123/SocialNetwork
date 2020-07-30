@@ -5,6 +5,7 @@ import Message from "./Message/Message";
 import {
     DialogpageType,
 } from "../../redux/store";
+import {v1} from "uuid";
 
 
 type ActionTypeProps = {
@@ -17,8 +18,8 @@ const Dialogs = (props: ActionTypeProps) => {
 
     let state = props.dialogsPage
 
-    let dialogsElements = state.dialogsData.map(el => <DialogItem id={el.id} name={el.name}/>)
-    let messageElements = state.messagesData.map(el => <Message message={el.message}/>)
+    let dialogsElements = state.dialogsData.map(el => <DialogItem key={v1()} id={el.id} name={el.name}/>)
+    let messageElements = state.messagesData.map(el => <Message key={v1()} message={el.message}/>)
     let newMessageBody = state.newMessageText
 
     const addMessage = () => {

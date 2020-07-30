@@ -5,6 +5,7 @@ import {
     PostsDataProps,
     ProfilePageType,
 } from "../../../redux/store";
+import {v1} from "uuid";
 
 
 type MyPostsTypeProps = {
@@ -17,7 +18,7 @@ type MyPostsTypeProps = {
 const MyPosts = (props: MyPostsTypeProps) => {
 
 
-    let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount}/>)
+    let postsElements = props.posts.map(el => <Post key={v1()} message={el.message} likesCount={el.likesCount}/>)
 
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
