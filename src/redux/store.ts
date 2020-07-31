@@ -18,7 +18,7 @@ export type PostsDataProps = {
     likesCount: number,
 }
 
-type UsersLocationPropsType = {
+export type UsersLocationPropsType = {
     city: string
     country: string
 }
@@ -28,6 +28,7 @@ export type UsersType = {
     fullname: string
     status: string
     followed: boolean
+    photoUrl: string
     location: UsersLocationPropsType
 }
 
@@ -60,6 +61,7 @@ export  type DispatchActionType = {
     newText?: string
     newTextDialogs?: string
     userId?: string
+    users: Array<UsersType>
 }
 
 
