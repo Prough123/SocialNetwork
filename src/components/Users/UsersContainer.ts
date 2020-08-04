@@ -1,9 +1,8 @@
-import React from 'react';
 import {RootStateType} from "../../redux/redux-store";
 import {followAC, setUsersAC, unfollowAC} from "../../redux/users-reducer";
-import {UsersPropsType, UsersType} from "../../redux/store";
-import {connect} from "react-redux";
-import Users from "./Users";
+import { UsersType} from "../../redux/store";
+import {connect, ConnectedProps} from "react-redux";
+import Users, {getUsersServerType} from "./Users";
 
 
 
@@ -15,17 +14,21 @@ let mapStateToProps = (state:RootStateType) => {
 
 let mapDispatchToProps = (dispatch:any) => {
     return {
-        follow: (userId: string) => {
+        follow: (userId: number) => {
             dispatch(followAC(userId))
         },
-        unFollow: (userId: string) => {
+        unFollow: (userId: number) => {
             dispatch(unfollowAC(userId))
         },
-        setUsers: (users: Array<UsersType>) => {
+        setUsers: (users: Array<getUsersServerType>) => {
             dispatch(setUsersAC(users))
         }
     }
 }
+
+const connector = connect(mapStateToProps,mapDispatchToProps)
+
+export type PropsFromRedux = ConnectedProps<typeof connector>
 
 const UsersContainer = connect(mapStateToProps,mapDispatchToProps)(Users)
 

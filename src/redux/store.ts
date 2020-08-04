@@ -3,19 +3,19 @@ import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
 export type DialogsDataProps = {
-    id: number | string,
-    name: string,
+    id: number | string
+    name: string
 }
 
 export type MessageDataProps = {
-    id: number | string,
-    message: string,
+    id: number | string
+    message: string
 }
 
 export type PostsDataProps = {
-    id: number | string,
-    message: string,
-    likesCount: number,
+    id: number | string
+    message: string
+    likesCount: number
 }
 
 export type UsersLocationPropsType = {
@@ -24,7 +24,7 @@ export type UsersLocationPropsType = {
 }
 
 export type UsersType = {
-    id: string
+    id: number
     fullname: string
     status: string
     followed: boolean
@@ -60,7 +60,7 @@ export  type DispatchActionType = {
     type: string
     newText?: string
     newTextDialogs?: string
-    userId?: string
+    userId: number
     users: Array<UsersType>
 }
 

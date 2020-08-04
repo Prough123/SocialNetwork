@@ -9,8 +9,6 @@ import UsersContainer from "./components/Users/UsersContainer";
 
 
 const App = () => {
-
-
     return (
         <BrowserRouter>
             <div className='app-wrapper'>

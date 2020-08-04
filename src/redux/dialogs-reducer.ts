@@ -1,4 +1,5 @@
 import {DialogpageType, DispatchActionType, MessageDataProps} from "./store";
+import {v1} from "uuid";
 
 
 const ADD_MESSAGE_IN_DIALOGS = 'ADD_MESSAGE_IN_DIALOGS'
@@ -6,24 +7,24 @@ const UPDATE_NEW_MESSAGE_IN_DIALOGS = 'UPDATE_NEW_MESSAGE_IN_DIALOGS'
 
 let initialState = {
     messagesData: [
-        {id: 1, message: 'Hi'},
-        {id: 2, message: 'Yoooyyy'},
-        {id: 3, message: 'How are you?'},
-        {id: 4, message: 'Lol'},
-        {id: 5, message: 'Kekeke'},
-        {id: 6, message: 'Sdasdasdad'},
-        {id: 7, message: 'asdadSADasdas ssdsd'},
+        {id: v1(), message: 'Hi'},
+        {id: v1(), message: 'Yoooyyy'},
+        {id: v1(), message: 'How are you?'},
+        {id: v1(), message: 'Lol'},
+        {id: v1(), message: 'Kekeke'},
+        {id: v1(), message: 'Sdasdasdad'},
+        {id: v1(), message: 'asdadSADasdas ssdsd'},
 
     ],
 
     dialogsData: [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'Sveta'},
-        {id: 3, name: 'Lera'},
-        {id: 4, name: 'Daria'},
-        {id: 5, name: 'Sergey'},
-        {id: 6, name: 'Zhenya'},
-        {id: 7, name: 'Ilya'},
+        {id: v1(), name: 'Dimych'},
+        {id: v1(), name: 'Sveta'},
+        {id: v1(), name: 'Lera'},
+        {id: v1(), name: 'Daria'},
+        {id: v1(), name: 'Sergey'},
+        {id: v1(), name: 'Zhenya'},
+        {id: v1(), name: 'Ilya'},
     ],
     newMessageText: 'it-kamasutra.com',
 }
@@ -31,20 +32,26 @@ let initialState = {
 const dialogsReducer = (state: DialogpageType = initialState, action: DispatchActionType) => {
 
     switch (action.type) {
-        case ADD_MESSAGE_IN_DIALOGS:
+        case ADD_MESSAGE_IN_DIALOGS: {
             let newMessage: MessageDataProps = {
-                id: 5,
+                id: v1(),
                 message: state.newMessageText
             }
-            state.messagesData.push(newMessage)
-            state.newMessageText = ''
-            return state
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessage],
+                newMessageText: ''
+            }
+        }
 
-        case UPDATE_NEW_MESSAGE_IN_DIALOGS:
+
+        case UPDATE_NEW_MESSAGE_IN_DIALOGS: {
             if (action.newTextDialogs) {
-                state.newMessageText = action.newTextDialogs
+                return {...state, newMessageText: action.newTextDialogs}
+
             }
             return state
+        }
         default:
             return state
     }
