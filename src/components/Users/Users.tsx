@@ -11,7 +11,6 @@ type UsersPropsType  = PropsFromRedux & {
     // unFollow: (userId: number) => void
     // follow: (userId: number) => void
     // setUsers: (users: Array<getUsersServerType>) => void
-
 }
 
 export type getUsersServerType = {
@@ -29,75 +28,12 @@ export type getUsersServerType = {
 
 let Users = (props: UsersPropsType) => {
 
-    if (props.users.length === 0) {
+    if (props.users.length <= 5) {
 
         axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            debugger
-            console.log(response)
             let data = response.data.items
-            console.log( data)
             props.setUsers(data)
         })
-
-        // props.setUsers(
-        //     [{
-        //         id: v1(),
-        //         photoUrl: 'https://sun1.beltelecom-by-minsk.userapi.com/9KokKdYosHiwu2EwedBf8TpE8i-TEHyeknIa8w/fzdgb-38AQk.jpg',
-        //         followed: true,
-        //         fullname: 'Dmitry',
-        //         status: 'kek',
-        //         location: {city: 'Minsk', country: 'Belarus'}
-        //     },
-        //         {
-        //             id: v1(),
-        //             photoUrl: 'https://sun1.beltelecom-by-minsk.userapi.com/9KokKdYosHiwu2EwedBf8TpE8i-TEHyeknIa8w/fzdgb-38AQk.jpg',
-        //             followed: true,
-        //             fullname: 'Ilya',
-        //             status: 'жирный слюнтяй',
-        //             location: {city: 'Minsk', country: 'Belarus'}
-        //         },
-        //         {
-        //             id: v1(),
-        //             photoUrl: 'https://sun1.beltelecom-by-minsk.userapi.com/9KokKdYosHiwu2EwedBf8TpE8i-TEHyeknIa8w/fzdgb-38AQk.jpg',
-        //             followed: false,
-        //             fullname: 'Karina',
-        //             status: 'Каришааааа',
-        //             location: {city: 'Minsk', country: 'Belarus'}
-        //         },
-        //         {
-        //             id: v1(),
-        //             photoUrl: 'https://sun1.beltelecom-by-minsk.userapi.com/9KokKdYosHiwu2EwedBf8TpE8i-TEHyeknIa8w/fzdgb-38AQk.jpg',
-        //             followed: true,
-        //             fullname: 'Alex',
-        //             status: 'kek',
-        //             location: {city: 'Minsk', country: 'Belarus'}
-        //         },
-        //         {
-        //             id: v1(),
-        //             photoUrl: 'https://sun1.beltelecom-by-minsk.userapi.com/9KokKdYosHiwu2EwedBf8TpE8i-TEHyeknIa8w/fzdgb-38AQk.jpg',
-        //             followed: false,
-        //             fullname: 'Zhenya',
-        //             status: 'Пидорас форсуночный',
-        //             location: {city: 'Minsk', country: 'Belarus'}
-        //         },
-        //         {
-        //             id: v1(),
-        //             photoUrl: 'https://sun1.beltelecom-by-minsk.userapi.com/9KokKdYosHiwu2EwedBf8TpE8i-TEHyeknIa8w/fzdgb-38AQk.jpg',
-        //             followed: false,
-        //             fullname: 'Sergey',
-        //             status: 'C# and Python for геев',
-        //             location: {city: 'Minsk', country: 'Belarus'}
-        //         },
-        //         {
-        //             id: v1(),
-        //             photoUrl: 'https://sun1.beltelecom-by-minsk.userapi.com/9KokKdYosHiwu2EwedBf8TpE8i-TEHyeknIa8w/fzdgb-38AQk.jpg',
-        //             followed: true,
-        //             fullname: 'Roma',
-        //             status: 'lol',
-        //             location: {city: 'Minsk', country: 'Belarus'}
-        //         },
-        //     ]
-        // )
     }
 
     return <div>
@@ -105,7 +41,7 @@ let Users = (props: UsersPropsType) => {
             props.users.map(el => <div key={v1()}>
                 <span>
                     <div>
-                        <img className={UsersModuleCss.userPhoto} src={el.photos.small ? el.photos.small : userPhoto} alt="avatar"/>
+                        <img className={UsersModuleCss.userPhoto} src={el.photos.small != null ? el.photos.small : userPhoto} alt="avatar"/>
                     </div>
                     <div>
                         <button>
@@ -123,7 +59,7 @@ let Users = (props: UsersPropsType) => {
                 </span>
                 <span>
                     <span>
-                        <div>{el.fullname}</div>
+                        <div>{el.name}</div>
                         <div>{el.status}</div>
                     </span>
                     <span>

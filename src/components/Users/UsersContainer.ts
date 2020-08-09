@@ -1,6 +1,5 @@
 import {RootStateType} from "../../redux/redux-store";
 import {followAC, setUsersAC, unfollowAC} from "../../redux/users-reducer";
-import { UsersType} from "../../redux/store";
 import {connect, ConnectedProps} from "react-redux";
 import Users, {getUsersServerType} from "./Users";
 

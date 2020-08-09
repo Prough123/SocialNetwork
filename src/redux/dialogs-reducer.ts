@@ -29,7 +29,9 @@ let initialState = {
     newMessageText: 'it-kamasutra.com',
 }
 
-const dialogsReducer = (state: DialogpageType = initialState, action: DispatchActionType) => {
+export type ActionsTypes = updateNewMessageInDialogsACtype | addMessageInDialogsACType
+
+const dialogsReducer = (state: DialogpageType = initialState, action: ActionsTypes) => {
 
     switch (action.type) {
         case ADD_MESSAGE_IN_DIALOGS: {
@@ -57,12 +59,20 @@ const dialogsReducer = (state: DialogpageType = initialState, action: DispatchAc
     }
 }
 
-export const updateNewMessageInDialogsActionCreator = (text: string) => ({
+export const updateNewMessageInDialogsActionCreator = (text: string):updateNewMessageInDialogsACtype => ({
     type: UPDATE_NEW_MESSAGE_IN_DIALOGS,
     newTextDialogs: text
 })
 
-export const addMessageInDialogsActionCreator = () => ({type: ADD_MESSAGE_IN_DIALOGS})
+export type updateNewMessageInDialogsACtype = {
+    type: typeof UPDATE_NEW_MESSAGE_IN_DIALOGS
+    newTextDialogs: string
+}
 
+export const addMessageInDialogsActionCreator = ():addMessageInDialogsACType => ({type: ADD_MESSAGE_IN_DIALOGS})
+
+export type addMessageInDialogsACType = {
+    type: typeof ADD_MESSAGE_IN_DIALOGS
+}
 
 export default dialogsReducer;

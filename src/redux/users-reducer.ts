@@ -1,5 +1,3 @@
-import {DispatchActionType, UsersPropsType} from "./store";
-import {v1} from "uuid";
 import {getUsersServerType} from "../components/Users/Users";
 
 
@@ -24,9 +22,9 @@ let  initialState = {
 }
 
 export type initialStateType = typeof initialState
-export type ActionsTypes = SetUsersACType
+export type ActionsTypes = SetUsersACType | unFollowACType | followACType
 
-const usersReducer = (state: initialStateType = initialState, action: any): initialStateType => {
+const usersReducer = (state: initialStateType = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
         case FOLLOW:
             return {
@@ -56,19 +54,30 @@ const usersReducer = (state: initialStateType = initialState, action: any): init
         default:
             return state
     }
-
 }
 
-export const followAC = (userId: number) => ({type: FOLLOW, userId})
-export const unfollowAC = (userId: number) => ({type: UNFOLLOW, userId})
+export const followAC = (userId: number): followACType => ({type: FOLLOW, userId})
+
+export type followACType = {
+    type: typeof FOLLOW
+    userId: number
+}
+
+
+export const unfollowAC = (userId: number): unFollowACType => ({type: UNFOLLOW, userId})
+
+export type unFollowACType = {
+    type: typeof UNFOLLOW
+    userId: number
+}
+
+
+export const setUsersAC = (users: Array<getUsersServerType>): SetUsersACType => ({type: SET_USERS, users})
 
 export type SetUsersACType = {
     type: typeof SET_USERS,
     users: Array<getUsersServerType>
 }
-
-export const setUsersAC = (users: Array<getUsersServerType>): SetUsersACType => ({type: SET_USERS, users})
-
 export default usersReducer;
 
 
