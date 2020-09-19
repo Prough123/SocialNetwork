@@ -1,5 +1,5 @@
 import {RootStateType} from "../../redux/redux-store";
-import {followAC, setUsersAC, unfollowAC} from "../../redux/users-reducer";
+import {followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowAC} from "../../redux/users-reducer";
 import {connect, ConnectedProps} from "react-redux";
 import Users, {getUsersServerType} from "./Users";
 
@@ -8,7 +8,10 @@ import Users, {getUsersServerType} from "./Users";
 
 let mapStateToProps = (state:RootStateType) => {
     return {
-        users: state.usersPage.users
+        users: state.usersPage.users,
+        pageSize: state.usersPage.pageSize,
+        totalUsercCount: state.usersPage.totalUsercCount,
+        currentPage: state.usersPage.currentPage,
     }
 }
 
@@ -22,6 +25,12 @@ let mapDispatchToProps = (dispatch:any) => {
         },
         setUsers: (users: Array<getUsersServerType>) => {
             dispatch(setUsersAC(users))
+        },
+        setCurrentPage: (pageNumber: number) => {
+            dispatch(setCurrentPageAC(pageNumber))
+        },
+        setTotalUsercCount: (users: number) => {
+            dispatch(setTotalUsersCountAC(users))
         }
     }
 }

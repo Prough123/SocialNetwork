@@ -21,19 +21,36 @@ export type getUsersServerType = {
     followed: boolean
 }
 
-class Users extends React.Component<UsersPropsType, getUsersServerType> {
-    getUsers = () => {
-        if (this.props.users.length === 1) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-                let data = response.data.items
-                this.props.setUsers(data)
-            })
-        }
+
+
+class Users extends React.Component<UsersPropsType> {
+
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.setUsers(response.data.items)
+            this.props.setTotalUsercCount(response.data.totalCount)
+        })
+    }
+
+    onPageChanged = (pageNumber:number) => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+            let data = response.data.items
+            this.props.setUsers(data)
+        })
+        this.props.setCurrentPage(pageNumber)
     }
 
     render() {
+
+        let pagesCount = Math.ceil(this.props.totalUsercCount / this.props.pageSize)
+        let pages = [];
+        for (let i=1; i <= pagesCount; i++){
+            pages.push(i)
+        }
         return <div>
-            <button onClick={this.getUsers}>Get users</button>
+            <div>
+                {pages.map((p) => <span onClick={(event) => {this.onPageChanged(p)}} className={this.props.currentPage === p ? UsersModuleCss.selected: ''}>{p}</span>)}
+            </div>
             {
                 this.props.users.map(el => <div key={v1()}>
                 <span>
