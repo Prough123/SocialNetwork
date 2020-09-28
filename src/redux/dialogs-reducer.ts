@@ -1,4 +1,4 @@
-import {DialogpageType, DispatchActionType, MessageDataProps} from "./store";
+import { MessageDataProps} from "./store";
 import {v1} from "uuid";
 
 
@@ -14,7 +14,6 @@ let initialState = {
         {id: v1(), message: 'Kekeke'},
         {id: v1(), message: 'Sdasdasdad'},
         {id: v1(), message: 'asdadSADasdas ssdsd'},
-
     ],
 
     dialogsData: [
@@ -27,11 +26,14 @@ let initialState = {
         {id: v1(), name: 'Ilya'},
     ],
     newMessageText: 'it-kamasutra.com',
+    profile: null
 }
+
+type initialStateType = typeof initialState
 
 export type ActionsTypes = updateNewMessageInDialogsACtype | addMessageInDialogsACType
 
-const dialogsReducer = (state: DialogpageType = initialState, action: ActionsTypes) => {
+const dialogsReducer = (state: initialStateType  = initialState, action: ActionsTypes) => {
 
     switch (action.type) {
         case ADD_MESSAGE_IN_DIALOGS: {

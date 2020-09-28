@@ -1,6 +1,7 @@
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
+import {getProfileType} from "../components/Profile/ProfileContainer";
 
 export type DialogsDataProps = {
     id: number | string
@@ -39,6 +40,7 @@ export type UsersPropsType = {
 export type ProfilePageType = {
     postsData: Array<PostsDataProps>
     newPostText: string
+    profile: null
 }
 
 export type DialogpageType = {
