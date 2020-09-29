@@ -9,12 +9,12 @@ export type DialogsDataProps = {
 }
 
 export type MessageDataProps = {
-    id: number | string
+    id:string
     message: string
 }
 
 export type PostsDataProps = {
-    id: number | string
+    id: string
     message: string
     likesCount: number
 }

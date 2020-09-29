@@ -18,13 +18,13 @@ let initialState = {
         {id: v1(), message: 'asdadSADasdas ssdsd', likesCount: 136},
     ],
     newPostText: 'it-kamasutra.com',
-    profile: null
+    profile: null as null | getProfileType
 }
 type initialStateType = typeof initialState
 
 type ActionsTypes = addPostACType | updateNewPostTextACType | setUserProfileACType
 
-const profileReducer = (state: initialStateType = initialState, action: ActionsTypes) => {
+const profileReducer = (state: initialStateType = initialState, action: ActionsTypes): initialStateType => {
 
     switch (action.type) {
         case ADD_POST: {
@@ -54,13 +54,13 @@ const profileReducer = (state: initialStateType = initialState, action: ActionsT
 
 }
 
-export const addPostActionCreator = (): addPostACType => ({type: ADD_POST})
+export const  addPost = (): addPostACType => ({type: ADD_POST})
 export type addPostACType = {
     type: typeof ADD_POST
 }
 
 
-export const updateNewPostTextActionCreator = (text: string): updateNewPostTextACType => ({
+export const onPostChange = (text: string): updateNewPostTextACType => ({
     type: UPDATE_NEW_POST_TEXT,
     newText: text
 })

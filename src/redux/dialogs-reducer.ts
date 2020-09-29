@@ -33,7 +33,7 @@ type initialStateType = typeof initialState
 
 export type ActionsTypes = updateNewMessageInDialogsACtype | addMessageInDialogsACType
 
-const dialogsReducer = (state: initialStateType  = initialState, action: ActionsTypes) => {
+const dialogsReducer = (state: initialStateType  = initialState, action: ActionsTypes): initialStateType => {
 
     switch (action.type) {
         case ADD_MESSAGE_IN_DIALOGS: {
@@ -47,8 +47,6 @@ const dialogsReducer = (state: initialStateType  = initialState, action: Actions
                 newMessageText: ''
             }
         }
-
-
         case UPDATE_NEW_MESSAGE_IN_DIALOGS: {
             if (action.newTextDialogs) {
                 return {...state, newMessageText: action.newTextDialogs}

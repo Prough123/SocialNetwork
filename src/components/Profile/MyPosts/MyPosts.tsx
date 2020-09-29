@@ -3,7 +3,6 @@ import ModuleMyPosts from './MyPosts.module.css'
 import Post from "./Post/Post";
 import {
     PostsDataProps,
-    ProfilePageType,
 } from "../../../redux/store";
 import {v1} from "uuid";
 
