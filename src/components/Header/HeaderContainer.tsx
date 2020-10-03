@@ -1,24 +1,40 @@
 import React from 'react';
 import Header from "./Header";
 import axios from "axios";
+import {connect, ConnectedProps} from "react-redux";
+import {RootStateType} from "../../redux/redux-store";
+import {setAuthUserData} from "../../redux/auth-reducer";
 
-class HeaderContainer extends React.Component<any>{
+
+class HeaderContainer extends React.Component <PropsFromRedux> {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
+            withCredentials: true
+        })
             .then(response => {
-                this.props.setToggleIsFethcing(false)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
+                if (response.data.resultCode === 0) {
+                    this.props.setAuthUserData(response.data.data)
+                }
             })
-
     }
 
     render() {
-        return(
-           <Header/>
+        return (
+            <Header isAuth={this.props.isAuth} login={this.props.login}/>
         )
     }
 }
 
-export default HeaderContainer;
+const mapStateToProps = (state: RootStateType) => {
+    return {
+        login:state.auth.login,
+        isAuth: state.auth.isAuth
+    }
+}
+
+const connector = connect(mapStateToProps, {setAuthUserData})
+
+export type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connect(mapStateToProps, {setAuthUserData})(HeaderContainer);

@@ -4,6 +4,7 @@ import UsersModuleCss from "./Users.module.css"
 import userPhoto from '../../assets/images/user.png'
 import {getUsersServerType} from "./UsersContainer";
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 
 type UsersType = {
@@ -44,10 +45,33 @@ const Users = (props:UsersType) => {
                             {
                                 el.followed
                                     ? <div onClick={() => {
-                                        props.unFollow(el.id)
+                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`, {
+                                            withCredentials:true,
+                                            headers: {
+                                                "API-KEY": "fa125444-29b8-4972-9c66-f923562d12f2"
+                                            }
+                                        })
+                                            .then(response => {
+                                                if(response.data.resultCode === 0){
+                                                    props.unFollow(el.id);
+                                                }
+                                            })
                                     }}>Unfollow</div>
                                     : <div onClick={() => {
-                                       props.follow(el.id)
+
+                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`, {},{
+                                            withCredentials:true,
+                                            headers: {
+                                                "API-KEY": "fa125444-29b8-4972-9c66-f923562d12f2"
+                                            }
+                                        })
+                                            .then(response => {
+                                                if(response.data.resultCode === 0){
+                                                    props.unFollow(el.id);
+                                                }
+                                            })
+
+                                       props.follow(el.id);
                                     }}>follow</div>
                             }
                         </button>

@@ -18,4 +18,5 @@ export type RootStateType = ReturnType<typeof reducers>
 
 let store:Store = createStore(reducers);
 
+
 export default store;
