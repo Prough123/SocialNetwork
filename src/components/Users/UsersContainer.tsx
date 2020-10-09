@@ -12,6 +12,7 @@ import {
 } from "../../redux/users-reducer";
 import {connect, ConnectedProps} from "react-redux";
 import Preloader from "../common/Preloader/Preloader";
+import {getUsers} from "../../api/api";
 
 
 export type getUsersServerType = {
@@ -30,26 +31,20 @@ export type getUsersServerType = {
 class UsersContainer extends React.Component <PropsFromRedux> {
 
     componentDidMount() {
-        this.props.setToggleIsFethcing(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,{
-            withCredentials: true
-        })
-            .then(response => {
+        getUsers(this.props.currentPage,this.props.pageSize)
+            .then(data => {
                 this.props.setToggleIsFethcing(false)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
+                this.props.setUsers(data.items)
+                this.props.setTotalUsersCount(data.totalCount)
             })
     }
 
     onPageChanged = (pageNumber: number) => {
         this.props.setToggleIsFethcing(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-            withCredentials: true
-        })
-            .then(response => {
+        getUsers(pageNumber, this.props.pageSize)
+            .then(data => {
                 this.props.setToggleIsFethcing(false)
-                let data = response.data.items
-                this.props.setUsers(data)
+                this.props.setUsers( data.items)
             })
         this.props.setCurrentPage(pageNumber)
     }
