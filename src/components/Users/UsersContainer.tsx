@@ -12,7 +12,7 @@ import {
 } from "../../redux/users-reducer";
 import {connect, ConnectedProps} from "react-redux";
 import Preloader from "../common/Preloader/Preloader";
-import {getUsers} from "../../api/api";
+import {getUsers, usersAPI} from "../../api/api";
 
 
 export type getUsersServerType = {
@@ -31,7 +31,7 @@ export type getUsersServerType = {
 class UsersContainer extends React.Component <PropsFromRedux> {
 
     componentDidMount() {
-        getUsers(this.props.currentPage,this.props.pageSize)
+        usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
             .then(data => {
                 this.props.setToggleIsFethcing(false)
                 this.props.setUsers(data.items)
@@ -41,7 +41,7 @@ class UsersContainer extends React.Component <PropsFromRedux> {
 
     onPageChanged = (pageNumber: number) => {
         this.props.setToggleIsFethcing(true)
-        getUsers(pageNumber, this.props.pageSize)
+        usersAPI.getUsers(pageNumber, this.props.pageSize)
             .then(data => {
                 this.props.setToggleIsFethcing(false)
                 this.props.setUsers( data.items)
