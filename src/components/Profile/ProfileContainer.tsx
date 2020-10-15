@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import {connect} from "react-redux";
 import {RootStateType} from "../../redux/redux-store";
 import { withRouter } from 'react-router-dom';
+import {getUserProfile} from "../../redux/profile-reducer";
 
 
 
@@ -58,4 +59,4 @@ function mapStateToProps(state: RootStateType) {
 let WithUrlDataContainerComponent = withRouter(ProfileContainer)
 
 
-export default connect(mapStateToProps, )(WithUrlDataContainerComponent);
+export default connect(mapStateToProps, {getUserProfile} )(WithUrlDataContainerComponent);
