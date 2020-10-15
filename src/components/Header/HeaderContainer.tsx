@@ -4,17 +4,16 @@ import axios from "axios";
 import {connect, ConnectedProps} from "react-redux";
 import {RootStateType} from "../../redux/redux-store";
 import {setAuthUserData} from "../../redux/auth-reducer";
+import {authAPI} from "../../api/api";
 
 
 class HeaderContainer extends React.Component <PropsFromRedux> {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-            withCredentials: true
-        })
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    this.props.setAuthUserData(response.data.data)
+        authAPI.me()
+            .then(data => {
+                if (data.resultCode === 0) {
+                    this.props.setAuthUserData(data.data)
                 }
             })
     }

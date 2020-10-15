@@ -12,7 +12,7 @@ import {
 } from "../../redux/users-reducer";
 import {connect, ConnectedProps} from "react-redux";
 import Preloader from "../common/Preloader/Preloader";
-import {getUsers, usersAPI} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 
 export type getUsersServerType = {

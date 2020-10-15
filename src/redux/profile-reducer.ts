@@ -1,6 +1,8 @@
 import { PostsDataProps, ProfilePageType} from "./store";
 import {v1} from "uuid";
 import {getProfileType} from "../components/Profile/ProfileContainer";
+import {Dispatch} from "redux";
+import {usersAPI} from "../api/api";
 
 
 const ADD_POST = 'ADD-POST';
@@ -78,6 +80,15 @@ export const setUserProfile = (profile: getProfileType):setUserProfileACType => 
 export type setUserProfileACType = {
     type: typeof SET_USER_PROFILE
     profile: getProfileType
+}
+
+//thunk
+
+export const getUserProfile = (userId:number) => (dispatch: Dispatch<ActionsTypes>) => {
+    usersAPI.getProfile(userId)
+        .then(data => {
+            dispatch(setUserProfile(data))
+        })
 }
 
 
