@@ -19,12 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91269bff-abd2-41e2-a859-3598110565f8" name="Default Changelist" comment="Dal">
+    <list default="true" id="91269bff-abd2-41e2-a859-3598110565f8" name="Default Changelist" comment="thunk">
+      <change afterPath="$PROJECT_DIR$/src/components/Login/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../kek/CounterReactRedux" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -177,7 +179,8 @@
       <workItem from="1602765594993" duration="4579000" />
       <workItem from="1602788325194" duration="411000" />
       <workItem from="1602789001180" duration="830000" />
-      <workItem from="1602789878146" duration="1883000" />
+      <workItem from="1602789878146" duration="2828000" />
+      <workItem from="1602854799931" duration="1964000" />
     </task>
     <task id="LOCAL-00001" summary="Adding state and refactoring code">
       <created>1593470275358</created>
@@ -305,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602789022932</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="thunk">
+      <created>1602791944134</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1602791944134</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +348,8 @@
     <MESSAGE value="connecting withRouter for display UserProfile" />
     <MESSAGE value="DAL" />
     <MESSAGE value="Dal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dal" />
+    <MESSAGE value="thunk" />
+    <option name="LAST_COMMIT_MESSAGE" value="thunk" />
   </component>
   <component name="WindowStateProjectService">
     <state x="814" y="441" width="282" height="221" key="#ESLint" timestamp="1595781376097">
@@ -354,10 +365,10 @@
     </state>
     <state x="554" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601127619185" />
     <state x="693" y="302" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1595779843040" />
-    <state x="2663" y="280" width="435" height="480" key="FileChooserDialogImpl" timestamp="1602789887804">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="594" y="222" width="435" height="480" key="FileChooserDialogImpl" timestamp="1602792728945">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="594" y="222" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1602789835443" />
+    <state x="594" y="222" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1602792728945" />
     <state x="2663" y="280" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602789887804" />
     <state x="743" y="311" width="435" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1597412606239" />
     <state x="2663" y="291" width="424" height="480" key="FileChooserDialogImpl/0.28.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1595785493078" />
@@ -397,10 +408,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="449" y="189" key="SettingsEditor/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1594343858308" />
-    <state x="502" y="179" width="800" height="524" key="Vcs.Push.Dialog.v2" timestamp="1602789083614">
+    <state x="502" y="179" width="800" height="524" key="Vcs.Push.Dialog.v2" timestamp="1602791953278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="502" y="179" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1602789083614" />
+    <state x="502" y="179" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1602791953278" />
     <state x="628" y="257" width="800" height="524" key="Vcs.Push.Dialog.v2/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1596991956013" />
     <state x="749" y="467" width="411" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596564553155">
       <screen x="0" y="28" width="1920" height="1052" />
@@ -423,10 +434,10 @@
     </state>
     <state x="499" y="178" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601309389021" />
     <state x="624" y="255" key="run.anything.popup/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1596459176143" />
-    <state x="498" y="182" width="672" height="532" key="search.everywhere.popup" timestamp="1602768921091">
+    <state x="498" y="182" width="672" height="532" key="search.everywhere.popup" timestamp="1602855011753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="182" width="672" height="532" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1602768921091" />
+    <state x="498" y="182" width="672" height="532" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1602855011753" />
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052/1920.0.1920.1080@0.28.1920.1052" timestamp="1596301731554" />
   </component>
 </project>

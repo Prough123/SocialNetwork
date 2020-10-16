@@ -6,15 +6,18 @@ import {
     DialogpageType,
 } from "../../redux/store";
 import {v1} from "uuid";
+import {PropsFromRedux} from "./DialogsContainer";
+import { Redirect } from 'react-router-dom';
 
 
-type ActionTypeProps = {
-    dialogsPage: DialogpageType
-    onAddMessage: () => void
-    onChangeMessage: (body: string) => void
-}
+// type ActionTypeProps = {
+//     dialogsPage: DialogpageType
+//     onAddMessage: () => void
+//     onChangeMessage: (body: string) => void
+//     isAuth: boolean
+// }
 
-const Dialogs = (props: ActionTypeProps) => {
+const Dialogs = (props: PropsFromRedux) => {
 
     let state = props.dialogsPage
 
@@ -32,6 +35,7 @@ const Dialogs = (props: ActionTypeProps) => {
         props.onChangeMessage(body)
     }
 
+    if(!props.isAuth) return <Redirect to={"/login"}/>
 
     return (
         <div className={ModuleDialogs.dialogs}>
