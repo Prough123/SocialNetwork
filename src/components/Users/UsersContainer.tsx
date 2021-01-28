@@ -13,6 +13,8 @@ import {
 import {connect, ConnectedProps} from "react-redux";
 import Preloader from "../common/Preloader/Preloader";
 import {usersAPI} from "../../api/api";
+import {compose} from "redux";
+import {WithAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 export type getUsersServerType = {
@@ -81,7 +83,14 @@ const connector = connect(mapStateToProps, {follow, unfollow, setUsers, setCurre
 
 export type PropsFromRedux = ConnectedProps<typeof connector>
 
-export default connect(mapStateToProps, {follow,unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFethcing,
-})(UsersContainer)
+
+
+export default compose<any>(
+    WithAuthRedirect,
+    connect(mapStateToProps, {follow,unfollow, setUsers, setCurrentPage, setTotalUsersCount, setToggleIsFethcing,
+    })
+)(UsersContainer)
+
+
 
 

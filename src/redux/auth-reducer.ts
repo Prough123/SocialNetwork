@@ -28,7 +28,6 @@ const authReducer = (state: initialStateType = initialState, action: ActionsType
 }
 
 export const setAuthUserData = (data: setUserDataType): setAuthUserDataACType => ({
-
     type: SET_USER_DATA, data
 })
 

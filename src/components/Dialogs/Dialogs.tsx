@@ -35,7 +35,6 @@ const Dialogs = (props: PropsFromRedux) => {
         props.onChangeMessage(body)
     }
 
-    if(!props.isAuth) return <Redirect to={"/login"}/>
 
     return (
         <div className={ModuleDialogs.dialogs}>

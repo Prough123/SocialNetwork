@@ -84,7 +84,7 @@ export type setUserProfileACType = {
 
 //thunk
 
-export const getUserProfile = (userId:number) => (dispatch: Dispatch<ActionsTypes>) => {
+export const getUserProfile = (userId:string) => (dispatch: Dispatch<ActionsTypes>) => {
     usersAPI.getProfile(userId)
         .then(data => {
             dispatch(setUserProfile(data))
