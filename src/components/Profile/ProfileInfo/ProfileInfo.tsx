@@ -13,13 +13,10 @@ const ProfileInfo = (props: ProfileType) => {
     }
     return (
         <div>
-            {/*<div><img*/}
-            {/*    src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg"*/}
-            {/*    alt=""/></div>*/}
             <div className={ModuleProfileInfo.descriptionBlock}>
                 <p>{props.profile.fullName}</p>
                 <img src={props.profile.photos.large}/>
-                <ProfileStatus status={'kek'}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 <p>{props.profile.aboutMe}</p>
                 <div>
                     Контакты
