@@ -76,7 +76,6 @@ export type PropsFromRedux = ConnectedProps<typeof connector>
 
 
 export default compose<any>(
-    WithAuthRedirect,
     withRouter,
     connect(mapStateToProps, {getUserProfile})
 )(ProfileContainer)
