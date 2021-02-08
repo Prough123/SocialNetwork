@@ -20,7 +20,6 @@ let initialState = {
         {id: v1(), message: 'Sdasdasdad', likesCount: 32},
         {id: v1(), message: 'asdadSADasdas ssdsd', likesCount: 136},
     ],
-    newPostText: 'it-kamasutra.com',
     profile: null as null | getProfileType,
     status: ''
 }
@@ -34,19 +33,12 @@ const profileReducer = (state: initialStateType = initialState, action: ActionsT
         case ADD_POST: {
             let newPost: PostsDataProps = {
                 id: v1(),
-                message: state.newPostText,
+                message: action.newPostTitle,
                 likesCount: 0
             };
             return {
                 ...state, postsData: [...state.postsData, newPost],
-                newPostText: ''
             }
-        }
-        case UPDATE_NEW_POST_TEXT: {
-            if (action.newText) {
-                return {...state, newPostText: action.newText}
-            }
-            return state
         }
         case SET_STATUS: {
             return {
@@ -57,16 +49,16 @@ const profileReducer = (state: initialStateType = initialState, action: ActionsT
         case SET_USER_PROFILE: {
             return {...state, profile:action.profile}
         }
-
         default:
             return state
     }
 
 }
 
-export const  addPost = (): addPostACType => ({type: ADD_POST})
+export const  addPost = (newPostTitle:string): addPostACType => ({type: ADD_POST, newPostTitle})
 export type addPostACType = {
     type: typeof ADD_POST
+    newPostTitle:string
 }
 
 

@@ -3,14 +3,13 @@ import {
     addPost,
     onPostChange,
 } from "../../../redux/profile-reducer";
-import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 import {RootStateType} from "../../../redux/redux-store";
+import MyPosts from "./MyPosts";
 
 
 let mapStateToProps = (state: RootStateType) => {
     return {
-        newPostText: state.profilePage.newPostText,
         posts: state.profilePage.postsData,
     }
 }

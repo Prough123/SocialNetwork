@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {ReduxStoreProviderDecorators} from "./decorators/ReduxStoreProviderDecorators";
-import MyPosts from "../components/Profile/MyPosts/MyPosts";
 import MyPostsContainer from "../components/Profile/MyPosts/MyPostsContainer";
+import MyPosts from "../components/Profile/MyPosts/MyPosts";
 
 export default {
     title: 'SocialNetwork/MyPosts',

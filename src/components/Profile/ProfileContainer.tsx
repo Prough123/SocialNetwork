@@ -52,7 +52,6 @@ class ProfileContainer extends React.Component<PropsType> {
     }
 
     render() {
-
         return (
             <div>
                 <Profile profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus}/>
@@ -65,7 +64,6 @@ function mapStateToProps(state: RootStateType) {
     return {
         profile: state.profilePage.profile,
         status: state.profilePage.status
-
     }
 }
 

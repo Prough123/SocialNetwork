@@ -1,9 +1,8 @@
-import { MessageDataProps} from "./store";
+import {MessageDataProps} from "./store";
 import {v1} from "uuid";
 
 
 const ADD_MESSAGE_IN_DIALOGS = 'ADD_MESSAGE_IN_DIALOGS'
-const UPDATE_NEW_MESSAGE_IN_DIALOGS = 'UPDATE_NEW_MESSAGE_IN_DIALOGS'
 
 let initialState = {
     messagesData: [
@@ -25,13 +24,12 @@ let initialState = {
         {id: v1(), name: 'Zhenya'},
         {id: v1(), name: 'Ilya'},
     ],
-    newMessageText: 'it-kamasutra.com',
     profile: null
 }
 
 type initialStateType = typeof initialState
 
-export type ActionsTypes = updateNewMessageInDialogsACtype | addMessageInDialogsACType
+export type ActionsTypes =  addMessageInDialogsACType
 
 const dialogsReducer = (state: initialStateType  = initialState, action: ActionsTypes): initialStateType => {
 
@@ -39,40 +37,24 @@ const dialogsReducer = (state: initialStateType  = initialState, action: Actions
         case ADD_MESSAGE_IN_DIALOGS: {
             let newMessage: MessageDataProps = {
                 id: v1(),
-                message: state.newMessageText
+                message: action.newMessageBody
             }
             return {
                 ...state,
                 messagesData: [...state.messagesData, newMessage],
-                newMessageText: ''
             }
-        }
-        case UPDATE_NEW_MESSAGE_IN_DIALOGS: {
-            if (action.newTextDialogs) {
-                return {...state, newMessageText: action.newTextDialogs}
-
-            }
-            return state
         }
         default:
             return state
     }
 }
 
-export const updateNewMessageInDialogsActionCreator = (text: string):updateNewMessageInDialogsACtype => ({
-    type: UPDATE_NEW_MESSAGE_IN_DIALOGS,
-    newTextDialogs: text
-})
 
-export type updateNewMessageInDialogsACtype = {
-    type: typeof UPDATE_NEW_MESSAGE_IN_DIALOGS
-    newTextDialogs: string
-}
-
-export const addMessageInDialogsActionCreator = ():addMessageInDialogsACType => ({type: ADD_MESSAGE_IN_DIALOGS})
+export const addMessageInDialogsActionCreator = (newMessageBody:string):addMessageInDialogsACType => ({type: ADD_MESSAGE_IN_DIALOGS, newMessageBody:newMessageBody})
 
 export type addMessageInDialogsACType = {
     type: typeof ADD_MESSAGE_IN_DIALOGS
+    newMessageBody:string
 }
 
 export default dialogsReducer;
