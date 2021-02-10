@@ -6,7 +6,6 @@ import {profileAPI, usersAPI} from "../api/api";
 
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 
@@ -25,7 +24,7 @@ let initialState = {
 }
 type initialStateType = typeof initialState
 
-type ActionsTypes = addPostACType | updateNewPostTextACType | setUserProfileACType | setStatusACType
+type ActionsTypes = addPostACType  | setUserProfileACType | setStatusACType
 
 const profileReducer = (state: initialStateType = initialState, action: ActionsTypes): initialStateType => {
 
@@ -60,17 +59,6 @@ export type addPostACType = {
     type: typeof ADD_POST
     newPostTitle:string
 }
-
-
-export const onPostChange = (text: string): updateNewPostTextACType => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text
-})
-export type updateNewPostTextACType = {
-    type: typeof UPDATE_NEW_POST_TEXT,
-    newText: string
-}
-
 
 export const setStatus = (status: string):setStatusACType => ({
     type: SET_STATUS, status
