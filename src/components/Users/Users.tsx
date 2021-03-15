@@ -1,85 +1,104 @@
-import React from 'react'
-import {v1} from "uuid";
-import UsersModuleCss from "./Users.module.css"
-import userPhoto from '../../assets/images/user.png'
-import {getUsersServerType} from "./UsersContainer";
-import {NavLink} from "react-router-dom";
-import axios from "axios";
-import {usersAPI} from "../../api/api";
+import React, {FC, useEffect} from 'react'
+import Paginator from '../common/Paginator/Paginator'
+import User from './User'
+import {UsersSearchForm} from './UsersSearchForm'
+import {FilterType, requestUsers} from '../../redux/users-reducer'
+import {useDispatch, useSelector} from 'react-redux'
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getPageSize,
+    getTotalUsersCount,
+    getUsers,
+    getUsersFilter
+} from '../../redux/users-selectors'
+import {useHistory} from 'react-router-dom'
+import * as queryString from 'querystring'
+
+type PropsType = {}
+
+type QueryParamsType = { term?: string; page?: string; friend?: string }
+export const Users: FC<PropsType> = (props) => {
+
+    const users = useSelector(getUsers)
+    const totalUsersCount = useSelector(getTotalUsersCount)
+    const currentPage = useSelector(getCurrentPage)
+    const pageSize = useSelector(getPageSize)
+    const filter = useSelector(getUsersFilter)
+    const followingInProgress = useSelector(getFollowingInProgress)
+
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    useEffect(() => {
+        const parsed = queryString.parse(history.location.search.substr(1)) as QueryParamsType
+
+        let actualPage = currentPage
+        let actualFilter = filter
+
+        if (!!parsed.page) actualPage = Number(parsed.page)
 
 
-type UsersType = {
-    usersCount: number
-    pageSize: number
-    users: Array<getUsersServerType>
-    currentPage: number
-    follow: (id: number) => void
-    unFollow: (id: number) => void
-    onPageChanged: (pageNumber: number) => void
+        if (!!parsed.term) actualFilter = {...actualFilter, term: parsed.term as string}
 
-}
+        switch(parsed.friend) {
+            case "null":
+                actualFilter = {...actualFilter, friend: null}
+                break;
+            case "true":
+                actualFilter = {...actualFilter, friend: true}
+                break;
+            case "false":
+                actualFilter = {...actualFilter, friend: false}
+                break;
+        }
 
-const Users = (props:UsersType) => {
+        dispatch(requestUsers(actualPage, pageSize, actualFilter))
+    }, [])
 
-    let pagesCount = Math.ceil(props.usersCount / props.pageSize)
-    let pages = [];
-    for (let i=1; i <= pagesCount; i++){
-        pages.push(i)
+    useEffect(() => {
+        const query: QueryParamsType = {}
 
+        if (!!filter.term) query.term = filter.term
+        if (filter.friend !== null) query.friend = String(filter.friend)
+        if (currentPage !== 1) query.page = String(currentPage)
+
+        history.push({
+            pathname: '/users',
+            search: queryString.stringify(query)
+        })
+    }, [filter, currentPage])
+
+
+    const onPageChanged = (pageNumber: number) => {
+        dispatch(requestUsers(pageNumber, pageSize, filter))
     }
-    return (
+    const onFilterChanged = (filter: FilterType) => {
+        dispatch(requestUsers(1, pageSize, filter))
+    }
+    const follow = (userId: number) => {
+        dispatch(follow(userId));
+    }
+    const unfollow = (userId: number) => {
+        dispatch(unfollow(userId));
+    }
+
+    return <div>
+
+        <UsersSearchForm onFilterChanged={onFilterChanged}/>
+
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+                   totalItemsCount={totalUsersCount} pageSize={pageSize}/>
         <div>
-            <div>
-                {pages.map((p) => <span onClick={(event) => {props.onPageChanged(p)}} className={props.currentPage === p ? UsersModuleCss.selected: ''}>{p}</span>)}
-            </div>
             {
-                props.users.map(el => <div key={v1()}>
-                <span>
-                    <div>
-                        <NavLink to={'/profile/' + el.id}>
-                             <img className={UsersModuleCss.userPhoto}
-                                  src={el.photos.small != null ? el.photos.small : userPhoto} alt="avatar"/>
-                        </NavLink>
-                    </div>
-                    <div>
-                        <button>
-                            {
-                                el.followed
-                                    ? <div onClick={() => {
-                                        usersAPI.unFollow(el.id)
-                                            .then(data => {
-                                                if(data.resultCode === 0){
-                                                    props.unFollow(el.id);
-                                                }
-                                            })
-                                    }}>Unfollow</div>
-                                    : <div onClick={() => {
-                                       usersAPI.follow(el.id)
-                                            .then(data => {
-                                                if(data.resultCode === 0){
-                                                    props.unFollow(el.id);
-                                                }
-                                            })
-                                       props.follow(el.id);
-                                    }}>follow</div>
-                            }
-                        </button>
-                    </div>
-                </span>
-                    <span>
-                    <span>
-                        <div>{el.name}</div>
-                        <div>{el.status}</div>
-                    </span>
-                    <span>
-                        <div>{"el.location.country"}</div>
-                        <div>{'el.location.city'}</div>
-                    </span>
-                </span>
-                </div>)
+                users.map(u => <User user={u}
+                                     followingInProgress={followingInProgress}
+                                     key={u.id}
+                                     unfollow={unfollow}
+                                     follow={follow}
+                    />
+                )
             }
         </div>
-    )
+    </div>
 }
-
-export default Users;

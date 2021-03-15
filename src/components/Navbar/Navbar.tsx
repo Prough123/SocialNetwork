@@ -1,27 +1,28 @@
 import React from 'react';
-import ModuleNavbar from './Navbar.module.css'
-import { NavLink } from 'react-router-dom';
+import s from './Navbar.module.css';
+import {NavLink} from "react-router-dom";
 
-const Navbar = () => {
-    return(
-        <nav className={ModuleNavbar.nav}>
-            <div className={ModuleNavbar.item}>
-                <NavLink to="/profile" activeClassName={ModuleNavbar.active}>Profile</NavLink>
+const Navbar: React.FC = () => {
+    return (
+        <nav className={s.nav}>
+            <div className={s.item}>
+                <NavLink to="/profile" activeClassName={s.activeLink}>Profile</NavLink>
             </div>
-            <div className={ModuleNavbar.item}>
-                <NavLink to="/dialogs" activeClassName={ModuleNavbar.active}>Messages</NavLink>
+            <div className={`${s.item} ${s.active}`}>
+                <NavLink to="/dialogs" activeClassName={s.activeLink}>Messages</NavLink>
             </div>
-            <div className={ModuleNavbar.item}>
-                <NavLink to="">News</NavLink>
+            <div className={`${s.item} ${s.active}`}>
+                <NavLink to="/users" activeClassName={s.activeLink}>Users</NavLink>
             </div>
-            <div className={ModuleNavbar.item}>
-                <NavLink to="">Music</NavLink>
+
+            <div className={s.item}>
+                <a>News</a>
             </div>
-            <div className={ModuleNavbar.item}>
-                <NavLink to="">Settings</NavLink>
+            <div className={s.item}>
+                <a>Music</a>
             </div>
-            <div className={ModuleNavbar.item}>
-                <NavLink to="/users">Users</NavLink>
+            <div className={s.item}>
+                <a>Settings</a>
             </div>
         </nav>
     )

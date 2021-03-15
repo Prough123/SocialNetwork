@@ -1,10 +1,7 @@
-import {DispatchActionType, SidebarType} from "./store";
-
-
 let initialState = {}
- const sidebarReducer = (state: SidebarType = initialState, action: DispatchActionType)=> {
-
-    return state
+type InitialStateType = typeof initialState
+const sidebarReducer = (state = initialState, action: any) => {
+    return state;
 }
 
 export default sidebarReducer;

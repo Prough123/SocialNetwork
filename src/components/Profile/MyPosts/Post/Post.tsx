@@ -1,26 +1,21 @@
-import React from 'react'
-import ModuleMyPosts from './Post.module.css'
+import React from 'react';
+import s from './Post.module.css';
 
-
-
-type PostProps = {
-    message: string,
-    likesCount:number | string
+type PropsType = {
+    message: string
+    likesCount: number
 }
 
-const Post = (props:PostProps) => {
-    return (
-
-
-        <div className={ModuleMyPosts.item}>
-            <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQihpPg13UyFBVFKfGbZZRuvrtGtiuCPKS9Gh84AxMmmsItool2&usqp=CAU"
-                alt=""/>
-            {props.message}
-            <div><span>{props.likesCount}</span></div>
-
-        </div>
-
-    )
+const Post: React.FC<PropsType> = (props) => {
+  return (
+    <div className={s.item}>
+      <img src='https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' />
+        { props.message }
+          <div>
+        <span>like</span> { props.likesCount }
+      </div>
+    </div>
+  )
 }
+
 export default Post;

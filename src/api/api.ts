@@ -1,46 +1,30 @@
 import axios from "axios";
+import {UserType} from '../types/types';
 
-
-
-const instance = axios.create({
+export const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-    headers: {
+    headers:     {
         "API-KEY": "fa125444-29b8-4972-9c66-f923562d12f2"
     }
-})
+});
 
-
-export const usersAPI = {
-    getUsers(currentPage: number, pageSize: number){
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
-            .then(res => res.data)
-    },
-    unFollow(userId: number){
-        return instance.delete(`follow/${userId}`).then(res => res.data)
-    },
-    follow(userId: number){
-        return instance.post(`follow/${userId}`).then(res => res.data)
-    },
-
+export enum ResultCodesEnum {
+    Success = 0,
+    Error = 1
 }
 
-export const profileAPI = {
-    getProfile(userId: string){
-        return instance.get(`profile/${userId}`).then(res => res.data)
-    },
-    getStatus(userId:string){
-        return instance.get(`profile/status/${userId}`)
-    },
-    updateStatus(status:string){
-        return instance.put(`profile/status`, {status})
-    }
+export enum ResultCodeForCapcthaEnum {
+    CaptchaIsRequired = 10
 }
 
-
-export const authAPI = {
-    me(){
-        return instance.get(`auth/me`).then(res => res.data)
-    }
+export type GetItemsType = {
+    items: Array<UserType>
+    totalCount: number
+    error: string | null
 }
-
+export type APIResponseType<D = {}, RC = ResultCodesEnum> = {
+    data: D
+    messages: Array<string>
+    resultCode: RC
+}

@@ -1,9 +1,12 @@
-import React from 'react'
-import preloader from "../../../assets/images/Gear-0.2s-200px.svg";
+import React from 'react';
+import preloader from "../../../assets/images/preloader.svg";
 
-export const Preloader = () => {
-    return   <div>
-        <img src={preloader} alt="preloader"/>
+type PropsType = {
+}
+
+let Preloader: React.FC = () => {
+    return <div  style={ { backgroundColor: 'white' } }>
+        <img src={preloader} />
     </div>
 }
 

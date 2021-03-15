@@ -1,60 +1,50 @@
-import {MessageDataProps} from "./store";
-import {v1} from "uuid";
+import {InferActionsTypes} from './redux-store';
 
-
-const ADD_MESSAGE_IN_DIALOGS = 'ADD_MESSAGE_IN_DIALOGS'
-
-let initialState = {
-    messagesData: [
-        {id: v1(), message: 'Hi'},
-        {id: v1(), message: 'Yoooyyy'},
-        {id: v1(), message: 'How are you?'},
-        {id: v1(), message: 'Lol'},
-        {id: v1(), message: 'Kekeke'},
-        {id: v1(), message: 'Sdasdasdad'},
-        {id: v1(), message: 'asdadSADasdas ssdsd'},
-    ],
-
-    dialogsData: [
-        {id: v1(), name: 'Dimych'},
-        {id: v1(), name: 'Sveta'},
-        {id: v1(), name: 'Lera'},
-        {id: v1(), name: 'Daria'},
-        {id: v1(), name: 'Sergey'},
-        {id: v1(), name: 'Zhenya'},
-        {id: v1(), name: 'Ilya'},
-    ],
-    profile: null
+type DialogType = {
+    id: number
+    name: string
+}
+type MessageType = {
+    id: number
+    message: string
 }
 
-type initialStateType = typeof initialState
+let initialState = {
+    dialogs: [
+        {id: 1, name: 'Dimych'},
+        {id: 2, name: 'Andrew'},
+        {id: 3, name: 'Sveta'},
+        {id: 4, name: 'Sasha'},
+        {id: 5, name: 'Viktor'},
+        {id: 6, name: 'Valera'}
+    ] as Array<DialogType>,
+    messages: [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'How is your it-kamasutra?'},
+        {id: 3, message: 'Yo'},
+        {id: 4, message: 'Yo'},
+        {id: 5, message: 'Yo'}
+    ] as Array<MessageType>
+}
 
-export type ActionsTypes =  addMessageInDialogsACType
-
-const dialogsReducer = (state: initialStateType  = initialState, action: ActionsTypes): initialStateType => {
-
+const dialogsReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
-        case ADD_MESSAGE_IN_DIALOGS: {
-            let newMessage: MessageDataProps = {
-                id: v1(),
-                message: action.newMessageBody
-            }
+        case 'SN/DIALOGS/SEND_MESSAGE':
+            let body = action.newMessageBody;
             return {
                 ...state,
-                messagesData: [...state.messagesData, newMessage],
-            }
-        }
+                messages: [...state.messages, {id: 6, message: body}]
+            };
         default:
-            return state
+            return state;
     }
 }
 
-
-export const addMessageInDialogsActionCreator = (newMessageBody:string):addMessageInDialogsACType => ({type: ADD_MESSAGE_IN_DIALOGS, newMessageBody:newMessageBody})
-
-export type addMessageInDialogsACType = {
-    type: typeof ADD_MESSAGE_IN_DIALOGS
-    newMessageBody:string
+export const actions = {
+    sendMessage: (newMessageBody: string) => ({type: 'SN/DIALOGS/SEND_MESSAGE', newMessageBody} as const)
 }
 
 export default dialogsReducer;
+
+export type InitialStateType = typeof initialState
+type ActionsType = InferActionsTypes<typeof actions>
